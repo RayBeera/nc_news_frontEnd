@@ -52,3 +52,8 @@ body {
 .article_headings {
   margin: 1rem 5%;
 }
+
+.loading {
+  font-size: 5rem;
+  text-align: center;
+}
