@@ -57,3 +57,8 @@ body {
   font-size: 5rem;
   text-align: center;
 }
+
+.article_card_img {
+  width: 50%;
+  border-radius: 2rem 2rem 2rem 2rem;
+}

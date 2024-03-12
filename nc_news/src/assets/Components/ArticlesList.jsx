@@ -3,8 +3,7 @@ import { getArticles } from "../../../api";
 import { Link } from "react-router-dom";
 import IsLoading from "./IsLoading";
 
-const ArticlesList = () => {
-  const [allArticles, setAllArticles] = useState([]);
+const ArticlesList = ({ allArticles, setAllArticles }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -16,13 +15,14 @@ const ArticlesList = () => {
   }, []);
 
   if (isLoading) {
-   return <IsLoading />;
-  } else {
-    return (
-      <ul className="articles-list">
-        {allArticles.map((article) => {
-          return (
-            <div key={article.article_id} className="article_card">
+    return <IsLoading />;
+  }
+  return (
+    <ul className="articles-list">
+      {allArticles.map((article) => {
+        return (
+          <Link key={article.article_id} to={`/articles/${article.article_id}`}>
+            <div className="article_card">
               <li>
                 <img
                   src={article.article_img_url}
@@ -39,18 +39,13 @@ const ArticlesList = () => {
                   {" "}
                   Created at: {article.created_at}{" "}
                 </h3>
-                <Link to={`/articles/${article.article_id}`}>
-                  <a className="article_button" href="/article">
-                    Read More
-                  </a>
-                </Link>
               </li>
             </div>
-          );
-        })}
-      </ul>
-    );
-  }
+          </Link>
+        );
+      })}
+    </ul>
+  );
 };
 
 export default ArticlesList;
