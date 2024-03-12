@@ -1,6 +1,5 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-// import { useState } from "react";
 import Navbar from "./assets/Components/Navbar";
 import ArticleCard from "./assets/Components/ArticleCard";
 import ArticlesList from "./assets/Components/ArticlesList";
