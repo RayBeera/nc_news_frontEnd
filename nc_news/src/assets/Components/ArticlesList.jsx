@@ -14,7 +14,6 @@ const ArticlesList = () => {
   return (
     <ul className="articles-list">
       {allArticles.map((article) => {
-        console.log(article);
         return (
           <div className="article_card">
             <li key={article.article_id}>
