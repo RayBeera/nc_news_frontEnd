@@ -5,6 +5,7 @@ import Navbar from "./assets/Components/Navbar";
 import ArticleCard from "./assets/Components/ArticleCard";
 import ArticlesList from "./assets/Components/ArticlesList";
 import Home from "./assets/Components/Home";
+import Comments from "./assets/Components/Comments";
 
 function App() {
   const [allArticles, setAllArticles] = useState([]);
@@ -27,6 +28,7 @@ function App() {
             />
           }
         ></Route>
+        <Route path="/articles/:article_id/comments" element={<Comments/>}></Route>
       </Routes>
     </div>
   );

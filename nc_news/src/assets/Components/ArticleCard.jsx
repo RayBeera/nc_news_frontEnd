@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import IsLoading from "./IsLoading";
 import { getArticleById } from "../../../api";
+import Comments from "./Comments";
 
 const ArticleCard = () => {
   const article_id = useParams().article_id;
 
   const [article, setArticle] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [showComments, setShowComments] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -17,7 +19,7 @@ const ArticleCard = () => {
     });
   }, []);
   if (isLoading) {
-    <isLoading />;
+    <IsLoading />;
   }
   return (
     <div>
@@ -28,10 +30,27 @@ const ArticleCard = () => {
       <h3 className="article_headings"> Votes: {article.votes} </h3>
       <h3 className="article_headings"> Created at: {article.created_at} </h3>
       <p> {article.body}</p>
-
-      <button>
-        <h3 className="article_headings"> Comments {article.comment_count} </h3>
+      <button
+        onClick={() => {
+          setShowComments(true);
+        }}
+      >
+        <h3 className="article_headings">
+          {" "}
+          Show Comments {article.comment_count}{" "}
+        </h3>
       </button>
+      <button
+        onClick={() => {
+          setShowComments(false);
+        }}
+      >
+        <h3 className="article_headings">
+          {" "}
+          Hide Comments {article.comment_count}{" "}
+        </h3>
+      </button>
+      {showComments ? <Comments /> : null}
     </div>
   );
 };
