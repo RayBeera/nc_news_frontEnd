@@ -1,11 +1,12 @@
 * {
   box-sizing: border-box;
+  /* background-color: rgb(252, 247, 241); */
 }
 body {
   margin: 0;
 }
 .nav {
-  background-color: rgb(195, 186, 186);
+  background-color: antiquewhite;
   display: flex;
   justify-content: space-between;
   gap: 2rem;
@@ -28,4 +29,31 @@ body {
   margin-top: 10px;
   margin-left: 10px;
   font-size: 2rem;
+}
+.articles-list {
+  list-style: none;
+}
+.article_card {
+  width: 25rem;
+  border-radius: 1rem;
+  box-shadow: 0px 10px 8px #999;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem 0.5rem 2rem 0.5rem;
+  background-color: rgb(249, 237, 221);
+  max-width: 500px;
+  margin: auto;
+  margin-top: 3rem;
+}
+.article_img {
+  width: 100%;
+  border-radius: 1rem 1rem 0 0;
+}
+.article_headings {
+  margin: 1rem 5%;
+}
+
+.loading {
+  font-size: 5rem;
+  text-align: center;
 }
