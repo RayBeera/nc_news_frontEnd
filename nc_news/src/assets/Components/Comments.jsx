@@ -3,10 +3,13 @@ import { useParams } from "react-router-dom";
 import { getAllComments } from "../../../api";
 import IsLoading from "./IsLoading";
 
+
 const Comments = () => {
+  const [allComments, setAllComments] = useState({})
+  console.log(allComments)
   const article_id = useParams().article_id;
 
-  const [allComments, setAllComments] = useState({});
+  
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -29,7 +32,10 @@ const Comments = () => {
               <h4>{comment.author}</h4>
               <p>{comment.body}</p>
             </li>
+
             <h4>Votes: {comment.votes}</h4>
+
+           
           </div>
         );
       })}

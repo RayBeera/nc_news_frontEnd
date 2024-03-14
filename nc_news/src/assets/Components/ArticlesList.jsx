@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { getArticles } from "../../../api";
+import { getArticles} from "../../../api";
 import { Link } from "react-router-dom";
 import IsLoading from "./IsLoading";
 
-const ArticlesList = ({ allArticles, setAllArticles }) => {
+const ArticlesList = () => {
+  const [allArticles, setAllArticles] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,6 +14,8 @@ const ArticlesList = ({ allArticles, setAllArticles }) => {
       setIsLoading(false);
     });
   }, []);
+
+ 
 
   if (isLoading) {
     return <IsLoading />;
