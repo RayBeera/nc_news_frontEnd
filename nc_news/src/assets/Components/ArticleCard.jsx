@@ -4,6 +4,7 @@ import IsLoading from "./IsLoading";
 import { getArticleById } from "../../../api";
 import Comments from "./Comments";
 
+import Votes from "../../../Votes";
 const ArticleCard = () => {
   const article_id = useParams().article_id;
 
@@ -18,7 +19,8 @@ const ArticleCard = () => {
       setIsLoading(false);
     });
   }, []);
-  if (isLoading) {
+
+  if (isLoading || !article) {
     <IsLoading />;
   }
   return (
@@ -28,6 +30,7 @@ const ArticleCard = () => {
       <h1 className="article_headings"> {article.title}</h1>
       <h3 className="article_headings"> Topic : {article.topic} </h3>
       <h3 className="article_headings"> Votes: {article.votes} </h3>
+      <Votes article_id={article_id} setArticle={setArticle} />
       <h3 className="article_headings"> Created at: {article.created_at} </h3>
       <p> {article.body}</p>
       <button

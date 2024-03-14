@@ -24,4 +24,18 @@ const getAllComments = (article_id) => {
       return data.data.comments;
     });
 };
-export { getArticles, getArticleById, getAllComments };
+
+const patchVotes = (article_id, votesValue) => {
+  const patchBody = {
+    inc_votes: votesValue,
+  };
+  return axios
+    .patch(
+      `https://nc-news-mr7q.onrender.com/api/articles/${article_id}`,
+      patchBody
+    )
+    .then((data) => {
+      return data.data.article;
+    });
+};
+export { getArticles, getArticleById, getAllComments, patchVotes };
